@@ -1,5 +1,5 @@
-var socket = io.connect();
-var username = "";
+﻿var socket = io.connect();
+var gNickname = "";
 
 function addMessage(type, msg, username, time) {
   var chat = "";
@@ -21,42 +21,70 @@ function addMessage(type, msg, username, time) {
                     </div>  \
                   </li> \
 ';
+  var chat_info = '\
+                <li class="center clearfix">  \
+                  <span class="label label-info center-block">__MESSAGE__ \
+                    <small class="text-muted"><span class="glyphicon glyphicon-time"></span>__TIME__</small>  \
+                  <span>  \
+                </li> \
+';                
   if ( type == "mine" ) {
     chat = chat_mine.replace("__USER__", username).replace("__MESSAGE__", msg).replace("__TIME__", time);
   }
-  else if ( type = "chat" ) {
+  else if ( type == "chat" ) {
     chat = chat_other.replace("__USER__", username).replace("__MESSAGE__", msg).replace("__TIME__", time);
   }
-  else if ( type = "info" ) {
+  else if ( type == "info" ) {
+    chat = chat_info.replace("__USER__", username).replace("__MESSAGE__", msg).replace("__TIME__", time);
   }
+
   $("#chat-entries").append(chat);
   
-  // �ǾƷ� �׸����� ��ũ�Ѹ�
+  // 맨아래 항목으로 스크롤링
   var el = $('.panel-body');
   // el.animate({scrollTop: el[0].scrollHeight}, 1000);
   el.scrollTop(el.prop('scrollHeight'));
 }
 
 function sentMessage() {
-  if ($('#inputText').val() != "") {
-    socket.emit('cmessage', $('#inputText').val());
+  var msg  = $('#inputText').val();
+  
+  if ( ! socket.connected ) {
+    alert('socket has been disconnected!');
+    return false;
+  }
+  
+  if ( msg != "") {
+    if ( gNickname == '' ) {
+      gNickname = msg;
+      socket.emit('setUser', gNickname);
+      $('#inputText').attr('placeholder', '여기에 적어보세요~');
+      $('#inputSend').text('전송');
+    } else {
+      socket.emit('cmessage', msg);
+    }
     $('#inputText').val('');
   }
 }
 
 function setusername() {
-  username = $('#nicknameText').val();
-  if (username != "" ) {
-    socket.emit('setUser', username);
+  nickname = $('#nicknameText').val();
+  if (nickname != "" ) {
+    gNickname = nickname;
+    socket.emit('setUser', gNickname);
     $('#modalNickname').modal('hide');
-    $('#inputText').removeAttr('disabled');
-    $('#inputSend').removeAttr('disabled');
     $("#inputText").focus();
   }
 }
 
 socket.on('smessage', function(data) {
+  console.log(data['type'] + ':' + data['message']);
   addMessage(data['type'], data['message'], data['user'], data['time']);
+});
+
+socket.on('ping', function(data) {
+  socket.emit('pong', {beat: data['beat']});
+  console.log('ping received and sended pong:: {beat:' + data['beat'] + '}');
 });
 
 $(function(){
@@ -70,6 +98,9 @@ $(function(){
   $('#inputSend').click(function(){sentMessage();});
   
   $('#modalNickname').on('shown.bs.modal', function() {
+    if ( gNickname != '' ) {
+      $('#nicknameText').val(gNickname);
+    }
     $('#nicknameText').focus();
   });
 

@@ -38,6 +38,8 @@
                     </span>새로고침</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-user">
                     </span><span data-toggle="modal" data-target="#modalNickname">대화명 설정</span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-eye-close">
+                    </span><span id="hideChat">대화 가리기</span></a></li>
                     <li class="divider"></li>
                     <li><a href="#"><span class="glyphicon glyphicon-off">
                     </span>나가기</a></li>
@@ -47,13 +49,14 @@
           <div class="panel-body">
               <ul id="chat-entries" class="chat">
               <!-- 채팅 메세지는 여기에 나타납니다. -->
+
               </ul>
           </div>
           <div class="panel-footer">
               <div class="input-group">
-                  <input id="inputText" class="form-control input-sm" placeholder="여기에 적어보아요~" type="text" disabled>
+                  <input id="inputText" class="form-control input-sm" placeholder="대화명을 입력하고 시작하세요" type="text">
                   <span class="input-group-btn">
-                      <button class="btn btn-warning btn-sm" id="inputSend" disabled>전송</button>
+                      <button class="btn btn-warning btn-sm" id="inputSend">대화명 설정</button>
                   </span>
               </div>
           </div>
