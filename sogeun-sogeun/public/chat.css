@@ -1,0 +1,93 @@
+body {
+  /* 크롬과 파이어폭스 브라우저의 경우 padding-bottom을 20px의 여유 확보가 안되더라도 스크롤바가 나타나지 않게 하기위함 */
+  /* overflow-y: hidden; */
+}
+
+html, body, .container-fluid,  .panel-primary {
+  height: 100%;
+}
+
+.container-fluid {
+  margin: 0 auto;
+  padding: 10px 5px 20px 5px; /* top, right, bottom, left */
+  height: 100%;
+  
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.chat
+{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.chat li
+{
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: ; /* 1px dotted #B3A9A9; */
+}
+
+.chat li.left .chat-body
+{
+    margin-left: 5px;
+}
+
+.chat li.right .chat-body
+{
+    margin-right: 5px;
+}
+
+
+.chat li .chat-body p
+{
+    margin: 0;
+    color: #777777;
+}
+
+.panel .slidedown .glyphicon, .chat .glyphicon
+{
+    margin-right: 5px;
+}
+
+.panel-heading
+{
+  /* height: 71px; */
+}
+
+.panel-body
+{
+    overflow-y: scroll;
+    height: -moz-calc(100% - 92px);
+    height: -webkit-calc(100% - 92px);
+    height: -o-calc(100% - 92px);
+    height: calc(100% - 92px);
+}
+
+.panel-footer
+{
+  /* height: 51px; */
+}
+
+/*
+::-webkit-scrollbar-track
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar
+{
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb
+{
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #555;
+}
+*/

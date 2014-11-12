@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="with=device-width, initial-scale=1">
+    <title>Sogeun Sogeun</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="chat.css">
+  </head>
+  <body>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+    
+    <!-- 상단 고정 메뉴바 -->
+    <!--
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar-header pull-left">
+          <span class="navbar-brand">Sogeun Sogeun</span>
+        </div>
+        <div class="navbar-header pull-right">
+          <a class="navbar-brand glyphicon glyphicon-cog" href="#"></a>
+        </div>
+    </div>
+    -->
+    
+    <div class="container-fluid wrapper">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+              <span class="glyphicon glyphicon-comment"></span> 소근소근
+              <div class="btn-group pull-right">
+                <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+                  <span class="glyphicon glyphicon-cog"></span>
+                </button>
+                <ul class="dropdown-menu slidedown">
+                    <li><a href="#"><span class="glyphicon glyphicon-refresh">
+                    </span>새로고침</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user">
+                    </span>이름변경</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-off">
+                    </span>나가기</a></li>
+                </ul>
+              </div>
+          </div>
+          <div class="panel-body">
+              <ul id="chat-entries" class="chat">
+              <!-- 채팅 메세지는 여기에 나타납니다. -->
+              </ul>
+          </div>
+          <div class="panel-footer">
+              <div class="input-group">
+                  <input id="inputText" class="form-control input-sm" placeholder="여기에 적어보아요~" type="text">
+                  <span class="input-group-btn">
+                      <button class="btn btn-warning btn-sm" id="inputSend">전송</button>
+                  </span>
+              </div>
+          </div>
+      </div>
+    </div>
+    
+  </body>
+</html>

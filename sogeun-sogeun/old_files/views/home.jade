@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        title 속닥속닥
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+        script(src="/socket.io/socket.io.js")
+        script(src="client.js")
+    body
+        div.container
+            header
+                h1 속닥속닥 :)
+            input(type='text')#usernameInput
+            button#usernameSet 이름설정
+            div#chatEntries
+            div#chatControls
+                input(type='text')#messageInput
+                button#submit 전송
+

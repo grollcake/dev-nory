@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="with=device-width, initial-scale=1">
+    <title>Sogeun Sogeun</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="chat.css">
+  </head>
+  <body>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+    
+    <!-- 상단 고정 메뉴바 -->
+    <!--
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar-header pull-left">
+          <span class="navbar-brand">Sogeun Sogeun</span>
+        </div>
+        <div class="navbar-header pull-right">
+          <a class="navbar-brand glyphicon glyphicon-cog" href="#"></a>
+        </div>
+    </div>
+    -->
+    
+    <div class="container-fluid wrapper">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+              <span class="glyphicon glyphicon-comment"></span> 소근소근
+              <div class="btn-group pull-right">
+                <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+                  <span class="glyphicon glyphicon-cog"></span>
+                </button>
+                <ul class="dropdown-menu slidedown">
+                    <li><a href="#"><span class="glyphicon glyphicon-refresh">
+                    </span>새로고침</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-user">
+                    </span><span data-toggle="modal" data-target="#modalNickname">대화명 설정</span></a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-eye-close">
+                    </span><span id="hideChat">대화 가리기</span></a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-off">
+                    </span>나가기</a></li>
+                </ul>
+              </div>
+          </div>
+          <div class="panel-body">
+              <ul id="chat-entries" class="chat">
+              <!-- 채팅 메세지는 여기에 나타납니다. -->
+
+              </ul>
+          </div>
+          <div class="panel-footer">
+              <div class="input-group">
+                  <input id="inputText" class="form-control input-sm" placeholder="대화명을 입력하고 시작하세요" type="text">
+                  <span class="input-group-btn">
+                      <button class="btn btn-warning btn-sm" id="inputSend">대화명 설정</button>
+                  </span>
+              </div>
+          </div>
+      </div>
+    </div>
+    
+    <!-- 이름변경 팝업 -->
+    <div class="modal fade" id="modalNickname" tabindex="-1" role="dialog" aria-labelledby="modalUsernameLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="modalUsernameLabel">대화명 설정</h4>
+          </div>
+          <div class="modal-body">
+              <input id="nicknameText" class="form-control input-lg" placeholder="채팅에 사용할 이름을 적어주세요" type="text">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+            <button type="button" class="btn btn-primary" id="nicknameSend">설정</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
