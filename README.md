@@ -3,7 +3,9 @@
 ### ssh 방법
 장단점
 1. clone, pull 할 때 계정정보 입력하지 않다도 됨
+
 2. private key를 설정하는게 약간 까다로움
+
 id_rsa에 private key 입력
 ```
 vi ~/.ssh/id_rsa
