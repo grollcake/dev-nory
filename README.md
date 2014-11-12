@@ -4,7 +4,6 @@
 장단점
 * clone, pull 할 때 계정정보 입력하지 않다도 됨
 * private key를 설정하는게 약간 까다로움
-
 id_rsa에 private key 입력
 ```
 vi ~/.ssh/id_rsa
@@ -22,7 +21,6 @@ git add *
 git commit -m '어쩌구 저쩌구'
 git push
 ```
-
 ## 업데이트
 ```
 git pull
