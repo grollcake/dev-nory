@@ -1,0 +1,4 @@
+source flask/bin/activate
+./run.py
+deactivate
+

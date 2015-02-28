@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Yuna</title>
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/css/bootstrap.min.css">
+        <style>
+            body {padding: 20px}
+            .btn.btn-success {
+                color: #ffffff;
+                background-color: #5CB85C;
+                background-image: linear-gradient(to bottom, #5CB85C, #419641);
+                border-color: #3E8F3E #3E8F3E #3E8F3E;
+            }
+            .btn.btn-success:hover {
+                color: #ffffff;
+                background-color: #419641;
+                background-image: linear-gradient(to bottom, #419641, #419641);
+                border-color: #3E8F3E #3E8F3E #3E8F3E;
+            }
+            .container {
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <a href="#" class="btn btn-success btn-sm" id="yuna-button"><span class="glyphicon glyphicon-heart"></span> 유나사랑해</a>
+        </div>
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-wip/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#yuna-button").click(function(){
+                    alert("유친도 유나 많이 사랑한데~");
+                });
+            });
+        </script>
+    </body>
+</html>
